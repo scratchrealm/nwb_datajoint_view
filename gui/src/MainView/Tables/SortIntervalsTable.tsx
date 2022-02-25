@@ -26,7 +26,8 @@ const fields = [
     },
     {
         key: 'sort_interval',
-        label: 'sort_interval'
+        label: 'sort_interval',
+        formatValue: (x: number[]) => ('[' + x.map(a => (`${a}`)).join(', ') + ']')
     }
 ]
 const primaryKey = (x: SortInterval) => (x.nwb_file_name + ':' + x.sort_interval_name)
@@ -47,8 +48,9 @@ const SortIntervalsTable: FunctionComponent<Props> = ({selection}) => {
         return intervalLists.map((intervalList) => {
             const columnValues: {[key: string]: {text: string}} = {}
             for (let f of fields) {
+                const value = (intervalList as any)[f.key]
                 columnValues[f.key] = {
-                    text: (intervalList as any)[f.key]
+                    text: f.formatValue ? f.formatValue(value) : value
                 }
             }
             return {
@@ -58,7 +60,7 @@ const SortIntervalsTable: FunctionComponent<Props> = ({selection}) => {
         })
     }, [intervalLists])
     if (!intervalLists) {
-        return <TaskStatusView task={task} label="Fetching interval lists for nwb file" />
+        return <TaskStatusView task={task} label="Fetching sort intervals for nwb file" />
     }
     return (
         <div>

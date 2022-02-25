@@ -7,6 +7,10 @@ import LabsTable from './Tables/LabsTable';
 import SessionsTable from './Tables/SessionsTable';
 import SortIntervalsTable from './Tables/SortIntervalsTable';
 import SubjectsTable from './Tables/SubjectsTable';
+import ElectrodeGroupsTable from './Tables/ElectrodeGroupsTable'
+import SortGroupsTable from './Tables/SortGroupsTable';
+import SpikeSortingRecordingsTable from './Tables/SpikeSortingRecordingsTable';
+import SpikeSortingsTable from './Tables/SpikeSortingsTable';
 
 type Props = {
     data: NwbDatajointViewData
@@ -34,6 +38,22 @@ const MainView: FunctionComponent<Props> = ({data, width, height}) => {
                             selectionDispatch={selectionDispatch}
                         />
                         <SortIntervalsTable
+                            selection={selection}
+                            selectionDispatch={selectionDispatch}
+                        />
+                        <ElectrodeGroupsTable
+                            selection={selection}
+                            selectionDispatch={selectionDispatch}
+                        />
+                        <SortGroupsTable
+                            selection={selection}
+                            selectionDispatch={selectionDispatch}
+                        />
+                        <SpikeSortingRecordingsTable
+                            selection={selection}
+                            selectionDispatch={selectionDispatch}
+                        />
+                        <SpikeSortingsTable
                             selection={selection}
                             selectionDispatch={selectionDispatch}
                         />

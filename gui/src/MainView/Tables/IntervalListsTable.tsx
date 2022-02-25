@@ -27,7 +27,7 @@ const fields = [
     {
         key: 'valid_times',
         label: 'valid_times',
-        formatValue: (x: number[][]) => (x.map(a => (a.map(b => `${b}`).join(', '))).join(' | '))
+        formatValue: (x: number[][]) => (x.map(a => ('[' + a.map(b => `${b}`).join(', ') + ']')).join(' '))
     }
 ]
 const primaryKey = (x: IntervalList) => (x.nwb_file_name + ':' + x.interval_list_name)

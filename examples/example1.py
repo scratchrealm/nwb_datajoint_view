@@ -1,5 +1,5 @@
-# 1/6/2022
-# https://figurl.org/f?v=gs://figurl/volumeview-2&d=e9d66edac2246a9db4aca6c515d4b79aaa450796&channel=flatiron1&label=Test%20volumeview%20workspace
+# 2/22/2022
+# https://figurl.org/f?v=gs://figurl/nwb-datajoint-view-1&d=a1e343d538bf4772503cfe5fe929cdbe1c86913b&channel=flatiron1&label=nwb_datajoint%20view
 
 import os
 import numpy as np
