@@ -21,6 +21,7 @@ Note: You must set the FIGURL_CHANNEL environment variable to the kachery channe
 Start the backend:
 
 ```bash
+# You should run this in the directory where the datajoint config file resides so that it can properly connect to the MySQL database
 nwb-datajoint-view-start-backend --channel <channelname>
 ```
 
