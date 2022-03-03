@@ -1,18 +1,18 @@
 import { getFigureData, useWindowDimensions } from 'figurl';
 import getFileData from 'figurl/getFileData';
-import NwbDatajointView from 'NwbDatajointView';
-import NwbDatajointViewData, { isNwbDatajointViewData } from 'NwbDatajointViewData';
+import SpyglassView from 'SpyglassView';
+import SpyglassViewData, { isSpyglassViewData } from 'SpyglassViewData';
 import React, { useEffect, useState } from 'react';
 
 function App() {
-  const [data, setData] = useState<NwbDatajointViewData>()
+  const [data, setData] = useState<SpyglassViewData>()
   const [errorMessage, setErrorMessage] = useState<string>()
   const {width, height} = useWindowDimensions()
 
   useEffect(() => {
     getFigureData().then((data: any) => {
       loadArrays(data).then(data2 => {
-        if (!isNwbDatajointViewData(data2)) {
+        if (!isSpyglassViewData(data2)) {
           setErrorMessage(`Invalid figure data`)
           console.error('Invalid figure data', data2)
           return
@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <NwbDatajointView
+    <SpyglassView
       data={data}
       width={width - 10}
       height={height - 5}

@@ -1,3 +1,4 @@
+import Hyperlink from 'components/Hyperlink/Hyperlink';
 import NiceTable from 'components/NiceTable/NiceTable';
 import { TaskStatusView } from 'figurl';
 import { Selection, SelectionAction } from 'MainView/selectionReducer';
@@ -78,8 +79,8 @@ const fields = [
 const primaryKey = (x: ElectrodeGroup) => (x.nwb_file_name + ':' + x.electrode_group_name)
 
 const ElectrodeGroupsTable: FunctionComponent<Props> = ({selection}) => {
-    const {returnValue: electrodeGroups, task} = useQueryTask<ElectrodeGroup[]>(
-        'nwb_datajoint_view.fetch_electrode_groups_for_nwb_file.1',
+    const {returnValue: electrodeGroups, task, refresh} = useQueryTask<ElectrodeGroup[]>(
+        'spyglassview.fetch_electrode_groups_for_nwb_file.1',
         {nwb_file_name: selection.nwb_file_name}
     )
     const columns = useMemo(() => {
@@ -110,6 +111,7 @@ const ElectrodeGroupsTable: FunctionComponent<Props> = ({selection}) => {
     return (
         <div>
             <h2>Electrode groups for {selection.nwb_file_name}</h2>
+            <Hyperlink onClick={refresh}>refresh</Hyperlink>
             <NiceTable
                 rows={rows}
                 columns={columns}

@@ -2,7 +2,7 @@
 
 set -ex
 
-TARGET=gs://figurl/nwb-datajoint-view-1
+TARGET=gs://figurl/spyglassview-1
 
 yarn build
 

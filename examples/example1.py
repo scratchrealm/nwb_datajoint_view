@@ -1,15 +1,15 @@
 # 2/22/2022
-# https://figurl.org/f?v=gs://figurl/nwb-datajoint-view-1&d=a1e343d538bf4772503cfe5fe929cdbe1c86913b&channel=flatiron1&label=nwb_datajoint%20view
+# https://figurl.org/f?v=gs://figurl/spyglassview-1&d=a1e343d538bf4772503cfe5fe929cdbe1c86913b&channel=flatiron1&label=spyglassview
 
 import os
 import numpy as np
-import nwb_datajoint_view as ndv
+import spyglassview as sgv
 
 def main():
     assert os.getenv('FIGURL_CHANNEL'), 'Environment variable not set: FIGURL_CHANNEL'
 
-    F = ndv.create_nwb_datajoint_view()
-    url = F.url(label='nwb_datajoint view')
+    F = sgv.create_spyglass_view()
+    url = F.url(label='spyglass view')
     print(url)
 
 

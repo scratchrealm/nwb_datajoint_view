@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import NwbDatajointViewData from 'NwbDatajointViewData';
+import SpyglassViewData from 'SpyglassViewData';
 import MainView from 'MainView/MainView';
 
 type Props = {
-    data: NwbDatajointViewData
+    data: SpyglassViewData
     width: number
     height: number
 }
 
-const NwbDatajointView: FunctionComponent<Props> = ({data, width, height}) => {
-    if (data.type === 'nwb-datajoint-view') {
+const SpyglassView: FunctionComponent<Props> = ({data, width, height}) => {
+    if (data.type === 'spyglassview') {
         return (
             <MainView
                 data={data}
@@ -23,4 +23,4 @@ const NwbDatajointView: FunctionComponent<Props> = ({data, width, height}) => {
     }
 }
 
-export default NwbDatajointView
+export default SpyglassView

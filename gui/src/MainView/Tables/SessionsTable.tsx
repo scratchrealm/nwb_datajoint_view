@@ -64,7 +64,7 @@ const SessionsTable: FunctionComponent<Props> = ({selectionDispatch}) => {
     ]), [selectionDispatch])
     const primaryKey = 'session_id'
 
-    const {returnValue: sessions, task} = useQueryTask<Session[]>('nwb_datajoint_view.fetch_sessions.1', {})
+    const {returnValue: sessions, task, refresh} = useQueryTask<Session[]>('spyglassview.fetch_sessions.1', {})
     const columns = useMemo(() => {
         return fields.map((f) => ({
             key: f.key,
@@ -94,6 +94,7 @@ const SessionsTable: FunctionComponent<Props> = ({selectionDispatch}) => {
     return (
         <div>
             <h2>Sessions</h2>
+            <Hyperlink onClick={refresh}>refresh</Hyperlink>
             <NiceTable
                 rows={rows}
                 columns={columns}

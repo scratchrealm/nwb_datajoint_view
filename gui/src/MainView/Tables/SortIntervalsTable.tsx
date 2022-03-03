@@ -1,3 +1,4 @@
+import Hyperlink from 'components/Hyperlink/Hyperlink';
 import NiceTable from 'components/NiceTable/NiceTable';
 import { TaskStatusView } from 'figurl';
 import { Selection, SelectionAction } from 'MainView/selectionReducer';
@@ -33,8 +34,8 @@ const fields = [
 const primaryKey = (x: SortInterval) => (x.nwb_file_name + ':' + x.sort_interval_name)
 
 const SortIntervalsTable: FunctionComponent<Props> = ({selection}) => {
-    const {returnValue: intervalLists, task} = useQueryTask<SortInterval[]>(
-        'nwb_datajoint_view.fetch_sort_intervals_for_nwb_file.1',
+    const {returnValue: intervalLists, task, refresh} = useQueryTask<SortInterval[]>(
+        'spyglassview.fetch_sort_intervals_for_nwb_file.1',
         {nwb_file_name: selection.nwb_file_name}
     )
     const columns = useMemo(() => {
@@ -65,6 +66,7 @@ const SortIntervalsTable: FunctionComponent<Props> = ({selection}) => {
     return (
         <div>
             <h2>Sort intervals for {selection.nwb_file_name}</h2>
+            <Hyperlink onClick={refresh}>refresh</Hyperlink>
             <NiceTable
                 rows={rows}
                 columns={columns}

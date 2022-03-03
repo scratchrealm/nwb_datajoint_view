@@ -5,11 +5,11 @@ import numpy as np
 import figurl as fig
 from figurl.core.serialize_wrapper import _serialize
 
-def create_nwb_datajoint_view():
+def create_spyglass_view():
     FIGURL_CHANNEL = os.getenv('FIGURL_CHANNEL')
     assert FIGURL_CHANNEL, 'Environment variable not set: FIGURL_CHANNEL'
     data = {
-        'type': 'nwb-datajoint-view'
+        'type': 'spyglassview'
     }
-    F = fig.Figure(view_url='gs://figurl/nwb-datajoint-view-1', data=data)
+    F = fig.Figure(view_url='gs://figurl/spyglassview-1', data=data)
     return F

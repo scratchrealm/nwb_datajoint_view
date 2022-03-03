@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+import spyglassview
+
+if __name__ == '__main__':
+    spyglassview.start_backend_cli()

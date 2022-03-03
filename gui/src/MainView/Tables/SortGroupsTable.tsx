@@ -1,3 +1,4 @@
+import Hyperlink from 'components/Hyperlink/Hyperlink';
 import NiceTable from 'components/NiceTable/NiceTable';
 import { TaskStatusView } from 'figurl';
 import { Selection, SelectionAction } from 'MainView/selectionReducer';
@@ -49,8 +50,8 @@ const fields = [
 const primaryKey = (x: SortGroup) => (x.nwb_file_name + ':' + x.sort_group_id)
 
 const SortGroupsTable: FunctionComponent<Props> = ({selection}) => {
-    const {returnValue: sortGroups, task} = useQueryTask<SortGroup[]>(
-        'nwb_datajoint_view.fetch_sort_groups_for_nwb_file.1',
+    const {returnValue: sortGroups, task, refresh} = useQueryTask<SortGroup[]>(
+        'spyglassview.fetch_sort_groups_for_nwb_file.1',
         {nwb_file_name: selection.nwb_file_name}
     )
     const columns = useMemo(() => {
@@ -81,6 +82,7 @@ const SortGroupsTable: FunctionComponent<Props> = ({selection}) => {
     return (
         <div>
             <h2>Sort groups for {selection.nwb_file_name}</h2>
+            <Hyperlink onClick={refresh}>refresh</Hyperlink>
             <NiceTable
                 rows={rows}
                 columns={columns}

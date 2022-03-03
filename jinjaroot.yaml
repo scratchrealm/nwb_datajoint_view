@@ -1,9 +1,9 @@
-projectName: nwb_datajoint_view
+projectName: spyglassview
 pythonProjectVersion: 0.1.0
 webAppProjectVersion: 0.1.0
 projectAuthor: Jeremy Magland
 projectAuthorEmail: jmagland@flatironinstitute.org
-projectDescription: View nwb_datajoint database
-projectUrl: https://github.com/scratchrealm/nwb_datajoint_view
-projectBugTrackerUrl: https://github.com/scratchrealm/nwb_datajoint_view/issues
+projectDescription: View spyglass database via figurl
+projectUrl: https://github.com/scratchrealm/spyglassview
+projectBugTrackerUrl: https://github.com/scratchrealm/spyglassview/issues
 pythonPackageDir: .

@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     packages=find_packages(),
     scripts=[
-        'bin/nwb-datajoint-view-start-backend'
+        'bin/spyglassview-start-backend'
     ],
     include_package_data = True,
     install_requires=[

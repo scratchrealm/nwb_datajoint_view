@@ -1,6 +1,0 @@
-#!/usr/bin/env python3
-
-import nwb_datajoint_view
-
-if __name__ == '__main__':
-    nwb_datajoint_view.start_backend_cli()

@@ -2,7 +2,7 @@
 import click
 from .start_backend import start_backend
 
-@click.command('nwb-datajoint-view-start-backend')
+@click.command('spyglassview-start-backend')
 @click.option('--channel', required=True, help="The kachery channel")
 @click.option('--backend-id', required=False, default='', help="The backend ID")
 def start_backend_cli(channel: str, backend_id: str):
