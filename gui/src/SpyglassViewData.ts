@@ -1,13 +1,15 @@
 import { validateObject } from "figurl"
-import { isEqualTo } from "figurl/viewInterface/validateObject"
+import { isEqualTo, isString } from "figurl/viewInterface/validateObject"
 
 type SpyglassViewData = {
     type: 'spyglassview'
+    sessionGroupName: string
 }
 
 export const isSpyglassViewData = (x: any): x is SpyglassViewData => {
     return validateObject(x, {
-        type: isEqualTo('spyglassview')
+        type: isEqualTo('spyglassview'),
+        sessionGroupName: isString
     })
 }
 

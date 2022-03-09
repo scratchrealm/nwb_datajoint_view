@@ -6,6 +6,7 @@ import useQueryTask from 'MainView/useQueryTask';
 import React, { FunctionComponent, useMemo } from 'react';
 
 type Props = {
+    sessionGroupName: string
     selection: Selection
     selectionDispatch: (a: SelectionAction) => void
 }
@@ -22,7 +23,7 @@ type Session = {
     timestamps_reference_time: string
 }
 
-const SessionsTable: FunctionComponent<Props> = ({selectionDispatch}) => {
+const SessionsTable: FunctionComponent<Props> = ({sessionGroupName, selectionDispatch}) => {
     const fields = useMemo(() => ([
         {
             key: 'session_id',
@@ -64,7 +65,7 @@ const SessionsTable: FunctionComponent<Props> = ({selectionDispatch}) => {
     ]), [selectionDispatch])
     const primaryKey = 'session_id'
 
-    const {returnValue: sessions, task, refresh} = useQueryTask<Session[]>('spyglassview.fetch_sessions.1', {})
+    const {returnValue: sessions, task, refresh} = useQueryTask<Session[]>('spyglassview.fetch_sessions.1', {'session_group_name': sessionGroupName})
     const columns = useMemo(() => {
         return fields.map((f) => ({
             key: f.key,

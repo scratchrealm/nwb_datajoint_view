@@ -7,9 +7,12 @@ from .serialize_wrapper import serialize_wrapper
 # Session
 @kc.taskfunction('spyglassview.fetch_sessions.1', type='query')
 @serialize_wrapper
-def task_fetch_sessions():
-    x = ndc.Session().fetch(as_dict=True)
-    return x
+def task_fetch_sessions(session_group_name: str):
+    sessions = ndc.SessionGroup.get_group_sessions(session_group_name)
+    return [
+        (ndc.Session & {'nwb_file_name': session['nwb_file_name']}).fetch1()
+        for session in sessions
+    ]
 
 # IntervalList for nwbfile
 @kc.taskfunction('spyglassview.fetch_interval_lists_for_nwb_file.1', type='query')

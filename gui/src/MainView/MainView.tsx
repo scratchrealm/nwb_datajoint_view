@@ -17,10 +17,12 @@ type Props = {
 
 const MainView: FunctionComponent<Props> = ({data, width, height}) => {
     const [selection, selectionDispatch] = useReducer(selectionReducer, {})
+    const {sessionGroupName} = data
     const {nwb_file_name} = selection
     return (
         <div style={{margin: 30}}>
             <SessionsTable
+                sessionGroupName={sessionGroupName}
                 selection={selection}
                 selectionDispatch={selectionDispatch}
             />

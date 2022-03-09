@@ -8,7 +8,7 @@ import spyglassview as sgv
 def main():
     assert os.getenv('FIGURL_CHANNEL'), 'Environment variable not set: FIGURL_CHANNEL'
 
-    F = sgv.create_spyglass_view()
+    F = sgv.create_spyglass_view('group1')
     url = F.url(label='spyglass view')
     print(url)
 
